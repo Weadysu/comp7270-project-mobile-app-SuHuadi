@@ -1,0 +1,11 @@
+@import '~@nativescript/theme/css/core.css';
+@import '~@nativescript/theme/css/default.css';
+@import '~nativescript-theme-core/css/core.light.css';
+
+.btn {
+    font-size: 18;
+}
+
+.labelTitle {
+        color: rgb(35, 91, 212);
+    }
