@@ -72,7 +72,7 @@
                 });
                 if (response.ok) {
 
-                    var data = response.json();
+                    var data = await response.json();
                     if (data.isFull) {
                         alert("Already Full");
                     } else {
