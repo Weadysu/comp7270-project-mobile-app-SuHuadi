@@ -123,6 +123,7 @@ export default {
 
 .input {
   font-size: 18;
+  placeholder-color: #A8A8A8;
 }
 
 .input-field .input {

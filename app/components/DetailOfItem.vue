@@ -123,7 +123,11 @@ export default {
           this.moveout();
         }
       } else {
-        alert("Please login first");
+        alert({
+          title: "",
+          message: "Please login first",
+          okButtonText: "OK"
+        });
       }
     }
   },
