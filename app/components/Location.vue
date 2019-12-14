@@ -4,7 +4,7 @@
             <NavigationButton text="Go back" android.systemIcon="ic_menu_back"
                 @tap="$navigateBack" />
         </ActionBar>
-        <WebView :src="apiUrl">
+        <WebView :src="apiUrl"/>
     </Page>
 </template>
 
