@@ -29,7 +29,7 @@ import DetailOfItem from "./DetailOfItem";
 export default {
   data() {
     return {
-      feeds: []
+      feeds: [] // Items of a client
     };
   },
 

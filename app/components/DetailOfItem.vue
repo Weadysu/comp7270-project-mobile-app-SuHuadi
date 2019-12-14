@@ -54,6 +54,7 @@ export default {
       });
     },
 
+    // Called by corentOrMoveOut function
     coRent: async function() {
       var searchURL =
         global.rootURL +
@@ -77,7 +78,7 @@ export default {
         } else {
           alert({
             title: "",
-            message: "Co-Rent successfully ",
+            message: "Move-in successfully ",
             okButtonText: "OK "
           }).then(() => {
             this.RorM = "Move-out";
@@ -88,6 +89,7 @@ export default {
       }
     },
 
+    // Called by corentOrMoveOut function
     moveout: async function() {
       var searchURL =
         global.rootURL +
@@ -106,7 +108,7 @@ export default {
           message: "Move-out successfully ",
           okButtonText: "OK"
         }).then(() => {
-          this.RorM = "Co-Rent";
+          this.RorM = "Move-in";
         });
       } else {
         console.log(response.statusText);
@@ -115,7 +117,7 @@ export default {
 
     corentOrMoveOut: function() {
       if (global.isLogined) {
-        if (this.RorM == "Co-Rent") {
+        if (this.RorM == "Move-in") {
           this.coRent();
         } else if (this.RorM == "Move-out") {
           this.moveout();
@@ -127,6 +129,7 @@ export default {
   },
 
   async mounted() {
+    // Show corresponding text in Move-in button
     if (global.isLogined) {
       var url = global.rootURL + "/rental/" + this.selectedItem.id;
 
@@ -137,12 +140,12 @@ export default {
 
       if (response.ok) {
         var data = await response.json();
-        this.RorM = data.isRented ? "Move-out" : "Co-Rent";
+        this.RorM = data.isRented ? "Move-out" : "Move-in";
       } else {
         alert(response.statusText);
       }
     } else {
-      this.RorM = "Co-Rent";
+      this.RorM = "Move-in";
     }
   }
 };

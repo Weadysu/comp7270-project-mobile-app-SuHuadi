@@ -98,14 +98,15 @@
 </template>
 
 <script>
-import ItemsOfEstate from "./ItemsOfEstate";
-import Search from "./Search";
-import Login from "./Login";
-import DetailOfItem from "./DetailOfItem";
-import MyRentals from "./MyRentals";
+import ItemsOfEstate from "./ItemsOfEstate"; // Page that shows items of selected estate
+import Search from "./Search"; // Page that shows items filtered by number of bedrooms
+import Login from "./Login"; // Login page
+import DetailOfItem from "./DetailOfItem"; // Page that shows details of certain item
+import MyRentals from "./MyRentals"; // Page that shows items co-rented by a client
 
 export default {
   methods: {
+    // for tab_Home
     browseDetail: function(args) {
       this.$navigateTo(DetailOfItem, {
         transition: {},
@@ -117,6 +118,7 @@ export default {
       });
     },
 
+    // for tab_Estate
     browseItemsOfEstate: function(args) {
       // console.log("Item with index: " + args.index + " tapped");
       // console.log("Product selected: " + args.item);
@@ -130,6 +132,7 @@ export default {
       });
     },
 
+    // for tab_Bedrooms
     searchWithBedrooms: function(args) {
       // console.log("search with num of bedrooms");
       this.$navigateTo(Search, {
@@ -142,6 +145,7 @@ export default {
       });
     },
 
+    // for tab_Account
     onItemTapForTab4: async function(args) {
       if (args.item == "Login") {
         // console.log("Product selected: " + args.item);
@@ -188,6 +192,7 @@ export default {
       }
     },
 
+    // for updating original page after logining of clients
     updateLogin: function() {
       if (global.isLogined) {
         this.itemsOfTab4 = ["Logoff", "My Rentals"];
@@ -201,43 +206,19 @@ export default {
 
   data() {
     return {
-    //   rentals: [
-    //     {
-    //       propertyTitle: "Description",
-    //       imageURL:
-    //         "https://cdn-hmlet.s3-ap-southeast-1.amazonaws.com/buildings/Hmlet_Foo_Ming_1.jpg",
-    //       estate: "Festival City",
-    //       bedrooms: "2",
-    //       grossArea: "800",
-    //       expectedTenants: "2",
-    //       rent: "15000",
-    //       box: "highLighted"
-    //     },
-    //     {
-    //       propertyTitle: "Description",
-    //       imageURL:
-    //         "https://cdn-hmlet.s3-ap-southeast-1.amazonaws.com/drive/68bb2a740af71ee7b4588c5b8416f63295c620d8.jpeg",
-    //       estate: "City One Shatin",
-    //       bedrooms: "2",
-    //       grossArea: "250",
-    //       expectedTenants: "2",
-    //       rent: "28000",
-    //       box: "highLighted"
-    //     }
-    //   ],
 
-      feeds: [],
+      feeds: [], // highlighted items
 
-      numbers: ["<= 2", ">= 3"],
+      numbers: ["<= 2", ">= 3"], //  filter condition of tab_Bedrooms
 
-      itemsOfTab4: ["Login"],
+      itemsOfTab4: ["Login"], // changable
 
       username: global.$username
     };
   },
 
   async mounted() {
-    global.rootURL = "https://8a811552.ngrok.io";
+    global.rootURL = "https://8a811552.ngrok.io"; // global rootUrl connected to the sails.js
     var response = await fetch(global.rootURL, {
       method: "GET",
       credentials: "same-origin"

@@ -30,7 +30,7 @@ export default {
   props: ["selectedEstate"],
   data() {
     return {
-      feeds: []
+      feeds: [] // Items of selected estate
     };
   },
 

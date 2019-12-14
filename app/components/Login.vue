@@ -51,8 +51,10 @@ export default {
 
   methods: {
     submit: async function submit() {
-      console.log("try to login");
+      
       var url = global.rootURL + "/user/login";
+
+      // Create FormData object for fetch
       var formData = new FormData();
       if (this.username) {
         formData.append("username", this.username);
@@ -67,6 +69,7 @@ export default {
       });
   
       if (response.ok) {
+        // Login successfully
         var data = await response.json();
         global.$userId = data.userId;
         alert({
@@ -82,6 +85,7 @@ export default {
           this.$navigateBack();
         });
       } else if (response.status == 401) {
+        // Fail to login because of wrong username or password
         var data = await response.text();
         alert({
           title: "",
@@ -89,6 +93,7 @@ export default {
           okButtonText: "OK"
         });
       } else {
+        // Fail to login because of other error
         alert({
           title: "",
           message: response.statusText,

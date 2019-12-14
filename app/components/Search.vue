@@ -47,6 +47,7 @@ export default {
     }
   },
 
+  // Fetch data that are meet the condition from server
   async mounted() {
     var num = this.selectedCondition[this.selectedCondition.length - 1];
 

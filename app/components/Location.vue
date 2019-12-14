@@ -11,9 +11,8 @@
 export default {
   props: ["estateName"],
   data() {
-    // console.log(1);
+
     var estate = this.$estates.filter(item => item.name == this.estateName)[0];
-    // console.log(estate);
 
     var apiUrl =
       "https://leafletapi.mtchoy.now.sh/index.html?lat=" +
