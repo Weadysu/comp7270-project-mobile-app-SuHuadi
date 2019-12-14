@@ -65,7 +65,7 @@ export default {
         credentials: "same-origin",
         body: formData
       });
-      console.log("hahaha");
+  
       if (response.ok) {
         var data = await response.json();
         global.$userId = data.userId;
@@ -74,11 +74,11 @@ export default {
           message: data.message,
           okButtonText: "OK"
         }).then(() => {
-          console.log(1);
+
           global.isLogined = true;
           global.$username = this.username;
           this.$delegate.updateLogin();
-          console.log(2);
+
           this.$navigateBack();
         });
       } else if (response.status == 401) {

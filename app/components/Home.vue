@@ -118,8 +118,8 @@ export default {
     },
 
     browseItemsOfEstate: function(args) {
-      console.log("Item with index: " + args.index + " tapped");
-      console.log("Product selected: " + args.item);
+      // console.log("Item with index: " + args.index + " tapped");
+      // console.log("Product selected: " + args.item);
       this.$navigateTo(ItemsOfEstate, {
         transition: {},
         transitionIOS: {},
@@ -131,7 +131,7 @@ export default {
     },
 
     searchWithBedrooms: function(args) {
-      console.log("search with num of bedrooms");
+      // console.log("search with num of bedrooms");
       this.$navigateTo(Search, {
         transition: {},
         transitionIOS: {},
@@ -246,7 +246,7 @@ export default {
       this.feeds = await response.json();
       console.log(JSON.stringify(this.feeds));
     } else {
-      console.log(response.statusText);
+      alert(response.statusText);
     }
   }
 };

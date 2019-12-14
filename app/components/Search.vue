@@ -36,8 +36,6 @@ export default {
 
   methods: {
     onItemTap: function(args) {
-      console.log("browse detail");
-
       this.$navigateTo(DetailOfItem, {
         transition: {},
         transitionIOS: {},
@@ -62,7 +60,7 @@ export default {
       this.feeds = await response.json();
       console.log(JSON.stringify(this.feeds));
     } else {
-      console.log(response.statusText);
+      alert(response.statusText);
     }
   }
 };
