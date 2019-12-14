@@ -26,9 +26,9 @@
                 </StackLayout>
                 <FlexboxLayout>
                     <Button :text="RorM" @tap="corentOrMoveOut"
-                        style="width:100%" />
+                        style="width:100%;" class="btn m-t-20"/>
                     <Button text="Address" @tap="browseAddress"
-                        style="width:100%" />
+                        style="width:100%; " class="btn m-t-20"/>
                 </FlexboxLayout>
             </StackLayout>
         </StackLayout>
@@ -74,7 +74,11 @@
 
                     var data = await response.json();
                     if (data.isFull) {
-                        alert("Already Full");
+                        alert({
+                        title: "",
+                        message: "Already Full ",
+                        okButtonText: "OK"
+                    })
                     } else {
                         alert({
                         title: "",
@@ -149,5 +153,15 @@
     };
 </script>
 
-<style>
+<style scoped>
+
+.btn {
+        height: 50;
+        background-color: rgb(35, 91, 212);
+        border-radius: 5;
+        font-size: 20;
+        Color: rgb(255, 255, 255);
+        font-weight: 400
+    }
+
 </style>

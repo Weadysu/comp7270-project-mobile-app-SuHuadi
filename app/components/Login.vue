@@ -108,9 +108,7 @@
     }
 
     .input {
-        font-size:
-            18;
-        placeholder-color: #A8A8A8;
+        font-size:18;
     }
 
     .input-field .input {

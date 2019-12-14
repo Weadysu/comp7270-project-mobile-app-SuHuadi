@@ -10,7 +10,7 @@
                     </TabStripItem>
                     <TabStripItem>
                         <Label text="Estate"></Label>
-                        <Image src="res://settings"></Image>
+                        <Image src="res://favorites"></Image>
                     </TabStripItem>
                     <TabStripItem>
                         <Label text="Bedrooms"></Label>
@@ -18,10 +18,10 @@
                     </TabStripItem>
                     <TabStripItem>
                         <Label text="Account"></Label>
-                        <Image src="res://home"></Image>
+                        <Image src="res://browse"></Image>
                     </TabStripItem>
                 </TabStrip>
-                <TabContentItem class="tabContentItem">
+                <TabContentItem>
                     <ListView for="feed in feeds"
                         backgroundColor="transparent"
                         @itemTap="browseDetail">
@@ -46,7 +46,7 @@
                         </v-template>
                     </ListView>
                 </TabContentItem>
-                <TabContentItem class="tabContentItem">
+                <TabContentItem>
                     <ListView for="estate in $estates"
                         @itemTap="browseItemsOfEstate">
                         <v-template>
@@ -61,7 +61,7 @@
                         </v-template>
                     </ListView>
                 </TabContentItem>
-                <TabContentItem class="tabContentItem">
+                <TabContentItem>
                     <ListView for="number in numbers"
                         @itemTap="searchWithBedrooms">
                         <v-template>
@@ -80,7 +80,7 @@
                         </v-template>
                     </ListView>
                 </TabContentItem>
-                <TabContentItem class="tabContentItem">
+                <TabContentItem>
                     <StackLayout orientation="vertical">
                         <FlexboxLayout>
                             <Image src="~/assets/profile.png" width="30%" />
@@ -186,10 +186,14 @@
                         );
                         if (response.ok) {
                             global.isLogined = false;
-                            alert("Logoff successfully");
+                            alert({
+                                title: "",
+                                message: "Logoff successfully",
+                                okButtonText: "OK"
+                                })
                             this.updateLogin();
                         } else {
-                            console.log(response.statusText);
+                            alert(response.statusText);
                         }
                     }
                 } else {
@@ -248,7 +252,7 @@
         },
 
         async mounted() {
-            global.rootURL = "https://7ff0e0ef.ngrok.io";
+            global.rootURL = "https://8a811552.ngrok.io";
             var response = await fetch(global.rootURL, {
                 method: "GET",
                 credentials: "same-origin"
@@ -264,9 +268,6 @@
 </script>
 
 <style scoped>
-    .tabContentItem {
-        background: white;
-    }
 
     .home-panel {
         vertical-align: center;
