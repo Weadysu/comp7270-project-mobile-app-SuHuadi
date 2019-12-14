@@ -248,7 +248,7 @@
         },
 
         async mounted() {
-            global.rootURL = "https://fafdcbb6.ngrok.io";
+            global.rootURL = "https://7ff0e0ef.ngrok.io";
             var response = await fetch(global.rootURL, {
                 method: "GET",
                 credentials: "same-origin"

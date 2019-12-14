@@ -71,13 +71,20 @@
                     credentials: "same-origin"
                 });
                 if (response.ok) {
-                    alert({
+
+                    var data = response.json();
+                    if (data.isFull) {
+                        alert("Already Full");
+                    } else {
+                        alert({
                         title: "",
                         message: "Co-Rent successfully ",
                         okButtonText: "OK "
                     }).then(() => {
                         this.RorM = "Move-out";
                     });
+                    }
+                    
                 } else {
                     alert(response.statusText);
                 }
@@ -122,8 +129,7 @@
 
         async mounted() {
             if (global.isLogined) {
-                var url = global.rootURL + "/rental/" + this.selectedItem
-                    .id;
+                var url = global.rootURL + "/rental/" + this.selectedItem.id;
 
                 var response = await fetch(url, {
                     method: "GET",
